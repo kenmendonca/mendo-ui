@@ -1,0 +1,12 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-switch="component.imageType">
+	<span ng-switch-when="link">
+		<a href="{{component.href}}" ng-click="clickFn($event)">
+<img ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-src="component.src" alt="{{component.alt}}" width="{{component.width}}" height="{{component.height}}"/>
+		</a>
+	</span>
+	<span ng-switch-default>
+		<img ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-src="component.src" alt="{{component.alt}}" width="{{component.width}}" height="{{component.height}}"/>
+	</span>
+</span>
+</span>

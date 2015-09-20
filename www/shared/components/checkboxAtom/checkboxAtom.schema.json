@@ -1,0 +1,64 @@
+{
+	"title": "checkbox",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"checkboxAtom"
+			],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"id": {
+			"type": "string",
+			"propertyOrder": 2
+		},
+		"model": {
+			"type": "string",
+			"default": "checkboxAtomModel",
+			"propertyOrder": 3
+		},
+		"name": {
+			"type": "string",
+			"propertyOrder": 4
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder": 5
+		},
+		"validators": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string",
+						"enum": [
+							"custom"
+						]
+					},
+					"parameter": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			},
+			"propertyOrder": 6
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 7
+		}
+	},
+	"additionalProperties": false
+}

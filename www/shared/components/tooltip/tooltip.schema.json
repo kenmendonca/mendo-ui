@@ -1,0 +1,41 @@
+{
+	"title": "tooltip",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["tooltip"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"tooltipContent": {
+			"type": "string",
+			"propertyOrder": 2
+		},
+		"placement": {
+			"type": "string",
+			"enum": ["top", "bottom", "left", "right"],
+			"propertyOrder": 3
+		},
+		"contents": {
+			"oneOf": [{
+                            "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                        }, {
+                            "$ref": "../shared/components/inline/inline.schema.json"
+                        }],
+			"propertyOrder": 4
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 5
+		}
+	},
+	"additionalProperties": false
+}

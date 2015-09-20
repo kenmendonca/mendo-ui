@@ -1,0 +1,16 @@
+<span>
+<div class="panel-group" role="tablist" aria-multiselectable="true" ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+	<div class="panel" ng-repeat="panel in component.panels" ng-class="'panel-'+panel.class">
+		<div class="panel-heading">
+			<span class="panel-title">
+			<ui-component component="panel.heading.contents"></ui-component>
+			</span>
+		</div>
+		<div class="panel-collapse collapse" id="{{panel.id}}" aria-expanded="{{::$first}}">
+			<div class="panel-body">
+				<ui-component component="panel.body.contents"></ui-component>
+			</div>
+		</div>
+	</div>
+</div>
+</span>

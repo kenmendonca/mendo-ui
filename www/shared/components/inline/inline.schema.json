@@ -1,0 +1,38 @@
+{
+	"title": "inline",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["inline"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"contents": {
+			"type": "array",
+			"items": {
+				"oneOf": [{
+					"$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+				}, {
+					"$ref": "../shared/components/textAtom/textAtom.schema.json"
+				},
+				{
+					"$ref": "../shared/components/tooltip/tooltip.schema.json"
+				}]
+			},
+			"propertyOrder": 3
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 4
+		}
+	},
+	"additionalProperties": false
+}

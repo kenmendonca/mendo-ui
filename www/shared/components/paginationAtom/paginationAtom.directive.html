@@ -1,0 +1,53 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+	<nav>
+  <ul class="pagination">
+  	    <li ng-class="{'disabled' : currentPage == 1}">
+    	<a href="#" aria-label="First Page" ng-click="gotoPage(1, $event)">
+       <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+  	    <li ng-class="{'disabled' : currentPage == 1}">
+    	<a href="#" aria-label="Previous Page" ng-click="gotoPage(currentPage - 1, $event)">
+       <span aria-hidden="true">&lsaquo;</span>
+      </a>
+    </li>
+      	    <li ng-class="{'active' : currentPage == 1}">
+    	<a href="#" ng-click="gotoPage(1,$event)">
+        1
+      </a>
+    </li>
+    <li ng-if="leftEllipsis" class="disabled">
+    	<a href="#">
+        ...
+      </a>
+    </li>
+    <li ng-repeat="page in pages" ng-class="{'active' : currentPage == page.pageNumber}">
+      <a href="#" ng-click="gotoPage(page.pageNumber, $event)">
+        {{page.pageNumber}}
+      </a>
+    </li>
+ 	<li ng-if="rightEllipsis" class="disabled">
+	<a href="#">
+       ...
+      </a>
+ 	</li>
+ 	      	    <li ng-if="numberPages != 1" ng-class="{'active' : currentPage == numberPages}">
+    	<a href="#" ng-click="gotoPage(numberPages, $event)">
+        {{numberPages}}
+      </a>
+    </li>
+ 	 	    <li ng-class="{'disabled' : currentPage == numberPages}">
+      <a href="#" aria-label="Next Page" ng-click="gotoPage(currentPage + 1, $event)">
+       <span aria-hidden="true">&rsaquo;</span>
+      </a>
+    </li>
+ 	    <li ng-class="{'disabled' : currentPage == numberPages}">
+    	<a href="#" aria-label="Last Page" ng-click="gotoPage(numberPages, $event)">
+       <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</span>
+</span>

@@ -1,0 +1,5 @@
+#ignore all configFile folders
+*
+#do not ignore changes made to componentsList.json or .gitignore
+!.gitignore
+!componentsList.json

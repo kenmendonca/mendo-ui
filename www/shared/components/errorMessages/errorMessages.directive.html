@@ -1,0 +1,14 @@
+<span>
+	<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+	<div class="row" ng-attr-ng-messages-multiple="component.multiple" ng-if="component.style=='box'" ui-error-messages>
+		<div ng-repeat="validator in component.validators" class="alert alert-danger ui-error-messages__box" ng-message="{{validator.condition}}">
+			<ui-component component="validator.contents"></ui-component>
+		</div>
+	</div>
+	<div class="row" ng-attr-ng-messages-multiple="component.multiple" ng-if="component.style=='text'" ui-error-messages>
+		<span ng-repeat="validator in component.validators" ng-message="{{validator.condition}}">
+			<ui-component component="validator.contents"></ui-component>
+		</span>
+	</div>
+</span>
+</span>

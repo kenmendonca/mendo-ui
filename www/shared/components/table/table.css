@@ -1,0 +1,14 @@
+.ui-table > thead > tr > th,
+.ui-table > tbody > tr > th,
+.ui-table > tfoot > tr > th,
+.ui-table > thead > tr > td,
+.ui-table > tbody > tr > td,
+.ui-table > tfoot > tr > td {
+  border-top: 1px solid #ddd;
+}
+.ui-table > thead > tr > th {
+  border-bottom: 2px solid #ddd;
+}
+.ui-table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}

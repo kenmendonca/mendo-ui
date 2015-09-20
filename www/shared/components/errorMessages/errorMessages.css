@@ -1,0 +1,10 @@
+.ui-error-messages__box::before{
+	font-family: "FontAwesome";
+	content: "\f06a";
+	display:inline;
+	margin-right:10px;
+}
+.ui-error-messages__box{
+	padding: 5px 10px;
+    margin: 0 15px 10px 15px;
+}

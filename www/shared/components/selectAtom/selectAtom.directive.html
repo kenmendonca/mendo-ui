@@ -1,0 +1,5 @@
+<span>
+<select class="form-control ui-select-atom" ng-class="{'input-lg':component.sizing == 'large','input-sm':component.sizing == 'small'}" ng-options = "option.value as option.label for option in component.questions" ng-disabled="component.disabled" ng-readonly="component.readonly" ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+	<option value="">{{component.default.label}}</option>
+</select>
+</span>

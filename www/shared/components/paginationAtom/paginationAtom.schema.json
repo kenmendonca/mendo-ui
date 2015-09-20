@@ -1,0 +1,29 @@
+{
+	"title": "paginationAtom",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["paginationAtom"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string"
+		},
+		"model" : {
+			"type" : "string"
+			},
+		"maxWidth" :{
+			"type" : "integer",
+			"minimum" : 3
+			},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show"
+		}
+	},
+	"additionalProperties": false
+}

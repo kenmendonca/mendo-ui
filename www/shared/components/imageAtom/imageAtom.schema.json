@@ -1,0 +1,60 @@
+{
+	"title": "image",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["imageAtom"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"src" : {
+			"type" : "string",
+			"propertyOrder": 2
+			},
+		"alt" : {
+			"type" : "string",
+			"propertyOrder": 3
+			},
+		"width" : {
+			"type" : "number",
+			"propertyOrder": 4
+			},
+		"height" : {
+			"type" : "number",
+			"propertyOrder": 5
+			},
+		"imageType": {
+			"type": "string",
+			"enum": ["no link", "link"],"propertyOrder": 6
+		},
+		"clickAction": {
+			"type": "string",
+			"enum": ["anchor", "route", "custom"],
+			"description": "This value applies only if 'link' is selected for imageType",
+			"propertyOrder": 7
+		},
+		"href": {
+			"type": "string",
+			"description": "This value applies only if 'link' is selected for imageType AND 'anchor' or 'route' are selected for clickAction",
+			"propertyOrder": 8
+		},
+		"validateForm": {
+			"type": "boolean",
+			"description": "This value applies only if 'link' is selected for imageType AND 'route' are selected for clickAction",
+			"propertyOrder": 9
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 10
+		}
+	},
+	"additionalProperties": false
+}

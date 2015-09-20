@@ -1,0 +1,75 @@
+{
+	"title": "checkboxList",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"checkboxListAtom"
+			],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"id": {
+			"type": "string",
+			"propertyOrder": 2
+		},
+		"model": {
+			"type": "string",
+			"default": "checkboxListModel",
+			"propertyOrder": 3
+		},
+		"groupModel": {
+			"type": "string",
+			"default": "checkboxListGroupModel",
+			"propertyOrder": 4
+		},
+		"name": {
+			"type": "string",
+			"propertyOrder": 5
+		},
+		"value": {
+			"type": "string",
+			"propertyOrder": 6
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder": 7
+		},
+		"validators": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string",
+						"enum": [
+							"minChecked",
+							"maxChecked",
+							"custom"
+						]
+					},
+					"parameter": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			},
+			"propertyOrder": 8
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 9
+		}
+	},
+	"additionalProperties": false
+}

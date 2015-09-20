@@ -1,0 +1,16 @@
+<div>
+    <form novalidate name="{{config.title ? 'form.'+config.title+'Form':config.title}}" ng-submit="angular.noop()">
+        <div ng-repeat="rowElem in config.row track by $index" class="{{config.classRow[$index]}}">
+            <div ng-repeat="colElem in rowElem track by $index" ng-class="['col-md-'+colElem.width,colElem.classCol]" ng-include="'rowTpl'">
+            </div>
+        </div>
+        <script type="text/ng-template" id="rowTpl">
+            <ui-component component="component" ng-repeat="component in colElem.components"></ui-component>
+            <div ng-repeat="rowElem in colElem.row track by $index" class="row {{colElem.classRow[$index]}}">
+                <div ng-repeat="colElem in rowElem track by $index" ng-class="['col-md-'+colElem.width,colElem.classCol]" ng-include="'rowTpl'">
+                </div>
+            </div>
+        </script>
+            <!-- <pre>{{data}}</pre> -->
+    </form>
+</div>

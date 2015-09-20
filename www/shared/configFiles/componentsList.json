@@ -1,0 +1,57 @@
+{
+    "components": {
+        "atoms": {
+            "collapsed": true,
+            "list": [
+                "textAtom",
+                "plaintextAtom",
+                "inputAtom",
+                "textareaAtom",
+                "selectAtom",
+                "radioAtom",
+                "checkboxAtom",
+                "checkboxListAtom",
+                "buttonAtom",
+                "dropdownAtom",
+                "date",
+                "paginationAtom"
+            ]
+        },
+        "form" : {
+            "collapsed" : true,
+            "list" : ["formGroup","radioGroup","checkboxGroup"]
+            },
+        "text": {
+            "collapsed": true,
+            "list": [
+                "inline",
+                "paragraph",
+                "tooltip",
+                "heading",
+                "list",
+                "table"
+            ]
+        },
+        "scaffolding": {
+            "collapsed": true,
+            "list": [
+                "componentScaffold",
+                "subView"
+            ]
+        },
+        "error messages": {
+            "collapsed": true,
+            "list": [
+                "errorMessages"
+            ]
+        },
+        "complex components": {
+            "collapsed": true,
+            "list": [
+                "sortTable",
+                "accordion",
+                "mediaObject"
+            ]
+        }
+    }
+}

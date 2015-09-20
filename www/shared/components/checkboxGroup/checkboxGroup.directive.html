@@ -1,0 +1,26 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-switch="component.layout">
+	<span ng-switch-when="block">
+		<span ng-repeat="checkboxComponent in component.checkboxComponents" ng-class="{'has-error' : form.showErrors[pageTitle + 'Form'] && !form[pageTitle + 'Form'][checkboxComponent.checkboxComponent.checkboxComponent.name].$valid}">
+			<div class="checkbox">
+				<label>
+					<ui-component component="checkboxComponent.checkboxComponent.checkboxComponent"></ui-component>
+					<span ng-if="checkboxComponent.hasLabel.hasLabel">
+					<ui-component component="checkboxComponent.hasLabel.label"></ui-component>
+					</span>
+				</label>
+			</div>
+		</span>
+	</span>
+	<span ng-switch-when="inline">
+		<span ng-repeat="checkboxComponent in component.checkboxComponents" ng-class="{'has-error' : form.showErrors[pageTitle + 'Form'] && !form[pageTitle + 'Form'][checkboxComponent.checkboxComponent.checkboxComponent.name].$valid}">
+			<label class="checkbox-inline">
+				<ui-component component="checkboxComponent.checkboxComponent.checkboxComponent"></ui-component>
+				<span ng-if="checkboxComponent.hasLabel.hasLabel">
+				<ui-component component="checkboxComponent.hasLabel.label"></ui-component>
+				</span>
+			</label>
+		</span>
+	</span>
+</span>
+</span>

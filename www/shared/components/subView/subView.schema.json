@@ -1,0 +1,23 @@
+{
+	"title": "subView",
+	"type": "object",
+	"description" : "No preview is available for subView",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["subView"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string"
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show"
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,102 @@
+.ui-error-messages__box::before{
+	font-family: "FontAwesome";
+	content: "\f06a";
+	display:inline;
+	margin-right:10px;
+}
+.ui-error-messages__box{
+	padding: 5px 10px;
+    margin: 0 15px 10px 15px;
+}
+
+.ui-media-object__image{
+		height:60px;
+		width:60px;
+		margin-right:10px;
+	}
+
+	.ui-media-object__list{
+  display:table;
+    width:100%;
+}
+
+.ui-media-object__list__listitem{
+  display:table-cell;
+    text-align:center;
+    position: relative;
+    padding-top:10px;
+}
+.ui-media-object__list__listitem--orderedList::after{
+    z-index:10;
+    content : "";
+    border-top:3px solid #1A3567;
+    position: absolute;
+    top:32px; 
+}
+
+.ui-media-object__list__listitem--orderedList--first::after{
+    width: 50%;
+    left:50%;
+}
+.ui-media-object__list__listitem--orderedList--middle::after{
+     width: 100%;
+    left:0;
+}
+.ui-media-object__list__listitem--orderedList--last::after{
+    width:50%;
+    right:50%;
+}
+.ui-media-object__list__listitem__number__wrapper{
+    margin:7px 0;
+}
+.ui-media-object__list__listitem__number{
+  position:relative;
+    z-index:25;
+    background: #1A3567;
+  color:#fff;
+    font-size:24px;
+    padding:6px 13px;
+    /* position: absolute; */
+    border-radius:100%;
+}
+.ui-media-object__list__listitem__heading{
+  padding:0 20px 0 20px;
+}
+.ui-media-object__list__listitem__text{
+  padding:0 20px 0 20px;
+}
+
+.ui-radio-atom:focus{
+  outline:0;
+  box-shadow: none;
+}
+
+.ui-sort-table > thead > tr > th,
+.ui-sort-table > tbody > tr > th,
+.ui-sort-table > tfoot > tr > th,
+.ui-sort-table > thead > tr > td,
+.ui-sort-table > tbody > tr > td,
+.ui-sort-table > tfoot > tr > td {
+  border-top: 1px solid #ddd;
+}
+.ui-sort-table > thead > tr > th {
+  border-bottom: 2px solid #ddd;
+}
+.ui-sort-table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+
+.ui-table > thead > tr > th,
+.ui-table > tbody > tr > th,
+.ui-table > tfoot > tr > th,
+.ui-table > thead > tr > td,
+.ui-table > tbody > tr > td,
+.ui-table > tfoot > tr > td {
+  border-top: 1px solid #ddd;
+}
+.ui-table > thead > tr > th {
+  border-bottom: 2px solid #ddd;
+}
+.ui-table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}

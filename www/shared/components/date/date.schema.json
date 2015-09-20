@@ -1,0 +1,86 @@
+{
+	"title": "date",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"date"
+			],
+			"options" : {"hidden" : true}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder" : 1
+		},
+		"id": {
+			"type": "string",
+			"propertyOrder" : 2
+		},
+		"model": {
+			"type": "string",
+			"default" : "inputAtomModel",
+			"propertyOrder" : 3
+		},
+		"name": {
+			"type": "string",
+			"propertyOrder" : 4
+		},
+		
+		"readonly": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder" : 6
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder" : 7
+		},
+		"placeholder": {
+			"type": "string",
+			"propertyOrder" : 8
+		},
+		"maskModel" : {
+			"type" : "boolean",
+			"default" : true,
+			"description" : "If true, the model will preserve slashes in the date.",
+			"propertyOrder" : 9
+			},
+		"sizing" : {
+			"type" : "string",
+			"enum" : ["small","medium","large"],
+			"default" : "medium",
+			"propertyOrder" : 10
+			},
+		"validators": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string",
+						"enum": [
+							"date",
+							"dateCompare"
+						]
+					},
+					"parameter": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+			,
+			"propertyOrder" : 11
+		},
+		"shown" : {
+			"type" : "string",
+			"enum" : ["show","hide","hideCSS"],
+			"default" : "show",
+			"propertyOrder" : 12
+		}
+	},
+	"additionalProperties": false
+}

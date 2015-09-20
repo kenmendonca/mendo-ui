@@ -1,0 +1,28 @@
+{
+	"title": "plaintext",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["plaintextAtom"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"content": {
+			"type": "string",
+			"propertyOrder": 2
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 3
+		}
+	},
+	"additionalProperties": false
+}

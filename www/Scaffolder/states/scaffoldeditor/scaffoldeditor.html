@@ -1,0 +1,133 @@
+<div>
+    <div class="modal fade componentModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Add a component</h4>
+                </div>
+                <div class="modal-body componentModal-pg1">
+                    <div ng-repeat="(listCategory,listComponents) in componentsList.components">
+                        <h4>{{listCategory}} <i class="fa" ng-class="listComponents.collapsed ? 'fa-plus' : 'fa-minus'" ng-click="listComponents.collapsed = !listComponents.collapsed"></i></h4>
+                        <div ng-repeat="listComponent in listComponents.list" ng-hide="listComponents.collapsed">
+                            <label>
+                            <input type="radio" name="componentListRadio" value="{{listComponent}}" ng-model="componentModal.chosenComponent">{{listComponent}}</label>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-body componentModal-pg2">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="json-editor"></div>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <div class="component-display" ng-if="componentModal.showComponent">
+                                    <form name="sampleForm">
+                                        <ui-component component="componentModal.sampleComponent"></ui-component>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="componentModal-pg1">
+                        <button type="button" class="btn btn-primary" ng-click="componentModalPg1Next()">Next</button>
+                    </div>
+                    <div class="componentModal-pg2">
+                        <button type="button" class="btn btn-primary" ng-click="rootAddComponent()"><span ng-show="!editing">Add Component</span><span ng-show="editing">Save Changes</span></button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 scaffold-sidemenu">
+                <div class="row">
+                    <h4>Pages</h4>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="page in data.scaffold track by $index" class="page-select" ng-class="{'active':currentPage == $index}"><i class="fa fa-fw fa-remove" ng-click="removePage($index)" ng-if="data.scaffold.length > 1"></i> <span ng-click="editPageTitle($index)" class="page-title-edit">{{page.title}}</span>&nbsp;<i class="fa fa-fw fa-pencil" ng-click="editPage($index)"></i></li>
+                        <li>
+                            <button class="btn btn-default" ng-click="addPage()"><i class="fa fa-fw fa-plus"></i> Page</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row page-json-editor">
+                    <h4>{{data.scaffold[currentPage].title}} JSON <small> pg.<span>{{currentPage + 1}}</span></small></h4>
+                    <textarea class="form-control" rows="15" readonly ng-if="!editingPageJson">{{data.scaffold[currentPage] | json}}</textarea>
+                    <textarea class="form-control" rows="15" ng-model="data.scaffold[currentPage]" scaffoldeditor-page-json-editor ng-if="editingPageJson"></textarea>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                            <button class="btn btn-default" select-all>Select All</button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-default" ng-click="editPageJson()" ng-class="{'active' : editingPageJson}">Edit</button>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified">
+                        <!-- <div class="btn-group">
+            <button class="btn btn-warning" ng-click="loadJson()">Load</button>
+        </div> -->
+                        <div class="btn-group">
+                            <button class="btn btn-primary" ng-click="saveJson()">Save</button>
+                            <button class="btn btn-default" ng-click="exportFiles()">Export</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 scaffold-container">
+                <form name="scaffoldForm" novalidate>
+                    <div class="scaffoldeditor-row-wrap row {{data.scaffold[currentPage].classRow[$index].replace('container-fluid','').replace('container','')}}" ng-repeat="row in data.scaffold[currentPage].row track by $index" scaffoldeditor-row-config="data.scaffold[currentPage].row" rowindex="{{$index}}" scaffoldeditor-class-config="data.scaffold[currentPage]">
+                        <div class="scaffoldeditor-row">
+                            <button class="btn btn-info btn-xs" ng-click="moveRow('up',true)" ng-show="scaffoldeditorRowConfig.length > 1 && rowindex != 0"><i class="fa fa-fw fa-arrow-up"></i></button>
+                            <button class="btn btn-info btn-xs" ng-click="addRow(true)"><i class="fa fa-fw fa-plus"></i></button>
+                            <button class="btn btn-info btn-xs" ng-click="removeRow(true)"><i class="fa fa-fw fa-remove"></i></button>
+                            <button class="btn btn-info btn-xs" ng-click="configureClass(true)"><i class="fa fa-fw fa-list-alt"></i></button>
+                            <button class="btn btn-info btn-xs" ng-click="moveRow('down',true)" ng-show="scaffoldeditorRowConfig.length > 1 && rowindex != scaffoldeditorRowConfig.length-1"><i class="fa fa-fw fa-arrow-down"></i></button>
+                        </div>
+                        <div ng-class="['col-md-'+col.width]" ng-repeat="col in row track by $index" ng-include="'scaffoldeditor_rowTpl'" scaffoldeditor-col-config="row" colindex="{{$index}}" class="scaffoldeditor-col-wrap {{col.classCol}}" scaffoldeditor-class-config="row"></div>
+                    </div>
+                    <script type="text/ng-template" id="scaffoldeditor_rowTpl">
+                        <div ng-repeat="component in col.components track by $index" class="scaffoldeditor-comp-wrap" scaffoldeditor-comp-config="col.components" compindex="{{$index}}">
+                            <div>
+                                <button class="btn btn-primary btn-xs" ng-show="scaffoldeditorCompConfig.length > 1 && compindex != 0" ng-click="moveComponent('up')"><i class="fa fa-arrow-up fa-fw"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-click="editComponent()"><i class="fa fa-pencil fa-fw"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-click="removeComponent()"><i class="fa fa-remove fa-fw"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="scaffoldeditorCompConfig.length > 1 && compindex != scaffoldeditorCompConfig.length-1" ng-click="moveComponent('down')"><i class="fa fa-arrow-down fa-fw"></i></button>
+                            </div>
+                            <div ng-if="refreshRender">
+                                <ui-component component="component"></ui-component>
+                            </div>
+                        </div>
+                        <button class="btn btn-default btn-xs" ng-click="addComponent()"><i class="fa fa-plus"></i> <i class="fa fa-puzzle-piece"></i></button>
+                        <div class="scaffoldeditor-col">
+                            <button class="btn btn-default btn-xs" ng-click="moveCol('left')" ng-show="scaffoldeditorColConfig.length > 1 && colindex != 0"><i class="fa fa-fw fa-arrow-left"></i></button>
+                            <button class="btn btn-default btn-xs" ng-click="splitCol()"><i class="fa fa-fw fa-columns"></i></button>
+                            <button class="btn btn-default btn-xs" ng-click="addColRow()" ng-show="scaffoldeditorColConfig[colindex].row.length < 1 || !scaffoldeditorColConfig[colindex].row"><i class="fa fa-fw fa-columns fa-rotate-270"></i></button>
+                            <button class="btn btn-default btn-xs" ng-click="removeCol()"><i class="fa fa-fw fa-remove"></i></button>
+                            <button class="btn btn-default btn-xs" ng-click="configureClass()"><i class="fa fa-fw fa-list-alt"></i></button>
+                            <button class="btn btn-default btn-xs" ng-show="scaffoldeditorColConfig.length > 1 && colindex != scaffoldeditorColConfig.length-1" ng-click="moveCol('right')"><i class="fa fa-fw fa-arrow-right"></i></button>
+                        </div>
+                        <div class="row scaffoldeditor-row-wrap {{col.classRow[$index]}}" ng-repeat="row in col.row track by $index" ng-if="col.row" scaffoldeditor-row-config="col.row" rowindex="{{$index}}" scaffoldeditor-class-config="col">
+                            <div class="scaffoldeditor-row">
+                                <button class="btn btn-info btn-xs" ng-click="moveRow('up')" ng-show="scaffoldeditorRowConfig.length > 1 && rowindex != 0"><i class="fa fa-fw fa-arrow-up"></i></button>
+                                <button class="btn btn-info btn-xs" ng-click="addRow()"><i class="fa fa-fw fa-plus"></i></button>
+                                <button class="btn btn-info btn-xs"><i class="fa-fw fa-remove" ng-click="removeRow()"></i></button>
+                                <button class="btn btn-info btn-xs" ng-click="configureClass()"><i class="fa fa-fw fa-list-alt"></i></button>
+                                <button class="btn btn-info btn-xs" ng-click="moveRow('down')" ng-show="scaffoldeditorRowConfig.length > 1 && rowindex != scaffoldeditorRowConfig.length-1"><i class="fa fa-fw fa-arrow-down"></i></button>
+                            </div>
+                            <div ng-class="['col-md-'+col.width]" ng-repeat="col in row track by $index" ng-include="'scaffoldeditor_rowTpl'" scaffoldeditor-col-config="row" colindex="{{$index}}" class="scaffoldeditor-col-wrap {{col.classCol}}" scaffoldeditor-class-config="row"></div>
+                        </div>
+                    </script>
+                </form>
+            </div>
+        </div>
+        <div>
+        </div>

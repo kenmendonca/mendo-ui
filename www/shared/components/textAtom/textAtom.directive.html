@@ -1,0 +1,12 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" class="{{component.style == 'custom class' ? component.class : ''}}" ng-switch="component.textType">
+	<span ng-switch-when="text">
+		{{component.content}}
+	</span>
+	<span ng-switch-when="link">
+		<a href="{{component.href}}" ng-click="clickFn($event)" ng-class="{'ui-text-atom__link-unstyled' : component.style == 'custom class' && component.class== 'ui-text-atom__link-unstyled'}">{{component.content}}</a>
+	</span>
+	<span ng-switch-when="html" ng-bind-html="component.content">
+	</span>
+</span>
+</span>

@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Scaffold</title>
+    <link rel="stylesheet" href="../shared/styles/bootstrap.css">
+    <link rel="stylesheet" href="../shared/styles/font-awesome-4.4.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../shared/styles/animate.css">
+    
+    <link rel="stylesheet" href="../shared/styles/github.css">
+    <link rel="stylesheet" href="../shared/styles/build.css">
+    <link rel="stylesheet" href="../shared/styles/scaffolder.css">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body ng-app="app" ng-controller="AppController" session="<%SESSION%>">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnav">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#">Mendo UI</a>
+            </div>
+            <div class="collapse navbar-collapse" id="mainnav">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active"><a href="#" ui-sref="explorer">File Explorer</a></li>
+                    <li ui-sref-active="active"><a href="#" ui-sref="scaffoldeditor">Build</a></li>
+                    <li ui-sref-active="active"><a href="#" ui-sref="preview">Preview</a></li>
+                </ul>
+                <p class="navbar-text navbar-right" ng-if="directory">
+                    <!-- Session {{session}}  -->
+                    Currently editing: <strong>/{{directory}}/</strong>
+                </p>
+            </div>
+        </div>
+    </nav>
+    <div ui-view></div>
+    <!--JQUERY-->
+    <script type="text/javascript" src="../shared/scripts/jquery.js"></script>
+    <script type="text/javascript" src="../shared/scripts/jsoneditor.min.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular.min.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular.ui-router.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular.ui-utils.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular-messages.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular-sanitize.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular-json-editor.min.js"></script>
+    <script type="text/javascript" src="../shared/scripts/highlight.pack.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular-highlight.min.js"></script>
+    <script type="text/javascript" src="../shared/scripts/moment.js"></script>
+    <!--BOOTSTRAP-->
+    <script type="text/javascript" src="../shared/scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="build.js"></script>
+</body>
+
+</html>

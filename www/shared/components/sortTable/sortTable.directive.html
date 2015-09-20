@@ -1,0 +1,20 @@
+<span>
+	<table ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" class="table ui-sort-table {{component.class}}">
+		 <thead>
+                <th ng-repeat="column in component.columns">
+                	<ui-component component="column.tableHeader.contents"></ui-component>
+                    <span ng-if="column.tableHeader.sortable" ng-click="sortColumn(column.key)">
+                        <i class="fa fa-sort" ng-if="predicate !== column.key"></i>
+                        <i class="fa" ng-if="predicate === column.key" ng-class="{'fa-sort-down' : reverse, 'fa-sort-up' : !reverse}"></i>
+                    </span>
+                </th>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="rowData" ng-init="trIndex = $index" sort-table-repeat>
+                <td ng-repeat="column in component.columns track by $index" ng-init="tdIndex = $index">
+                	<ui-component-severed component="{{::columnAssignComponent(trIndex, tdIndex, rowData)}}"></ui-component-severed>
+                </td>
+            	</tr>
+            </tbody>
+	</table>
+</span>

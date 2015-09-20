@@ -1,0 +1,14 @@
+.ui-sort-table > thead > tr > th,
+.ui-sort-table > tbody > tr > th,
+.ui-sort-table > tfoot > tr > th,
+.ui-sort-table > thead > tr > td,
+.ui-sort-table > tbody > tr > td,
+.ui-sort-table > tfoot > tr > td {
+  border-top: 1px solid #ddd;
+}
+.ui-sort-table > thead > tr > th {
+  border-bottom: 2px solid #ddd;
+}
+.ui-sort-table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}

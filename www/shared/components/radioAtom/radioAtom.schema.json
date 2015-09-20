@@ -1,0 +1,67 @@
+{
+	"title": "radio",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"radioAtom"
+			],
+			"options" : {"hidden" : true}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder" : 1
+		},
+		"id": {
+			"type": "string",
+			"propertyOrder" : 2
+		},
+		"model": {
+			"type": "string",
+			"default" : "radioAtomModel",
+			"propertyOrder" : 3
+		},
+		"name": {
+			"type": "string",
+			"propertyOrder" : 4
+		},
+		"value" : {
+			"type" : "string",
+			"propertyOrder" : 5
+			},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder" : 6
+		},
+		"validators": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string",
+						"enum": [
+							"required",
+							"custom"
+						]
+					},
+					"parameter": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			},
+			"propertyOrder" : 7
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder" : 8
+		}
+	},
+	"additionalProperties": false
+}

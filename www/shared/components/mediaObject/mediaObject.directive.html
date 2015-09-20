@@ -1,0 +1,33 @@
+<span>
+<div ng-switch="component.layout">
+<div ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+    <ul class="ui-media-object__list" ng-switch-when="horizontal">
+        <li class="ui-media-object__list__listitem" ng-repeat="listitem in component.contents.contentsArray track by $index" ng-class="{'ui-media-object__list__listitem--orderedList--first':($first && component.contents.mediaObjType == 'orderedList'),'ui-media-object__list__listitem--orderedList--middle':($middle && component.contents.mediaObjType == 'orderedList'),'ui-media-object__list__listitem--orderedList--last':($last && component.contents.mediaObjType == 'orderedList'),'ui-media-object__list__listitem--orderedList' : component.contents.mediaObjType}">
+            <div class="ui-media-object__list__listitem__number__wrapper" ng-if="component.contents.mediaObjType == 'orderedList'"><span class="ui-media-object__list__listitem__number">{{$index+1}}</span></div>
+            <span ng-if="component.contents.mediaObjType == 'images'">
+                <ui-component component="listitem.image"></ui-component>
+            </span>
+            <!-- <img ng-if="component.contents.mediaObjType == 'images'" ng-src="{{listitem.imgSrc}}" alt="{{listitem.imgAlt}}" class="ui-media-object__image" /> -->
+            <div class="ui-media-object__list__listitem__heading">
+                <ui-component component="listitem.heading"></ui-component>
+            </div>
+            <div class="ui-media-object__list__listitem__text">
+                <ui-component component="listitem.text"></ui-component>
+            </div>
+        </li>
+    </ul>
+    <div ng-switch-when="vertical">
+        <div class="media" ng-repeat="listitem in component.contents.contentsArray track by $index">
+            <div class="media-left media-middle">
+                <span ng-if="component.contents.mediaObjType == 'orderedList'" class="ui-media-object__list__listitem__number">{{$index+1}}</span>
+                <img ng-if="component.contents.mediaObjType == 'images'" ng-src="{{listitem.imgSrc}}" alt="{{listitem.imgAlt}}" class="ui-media-object__image" />
+            </div>
+            <div class="media-body">
+                <ui-component component="listitem.heading" ovr-str-parent-class="media-heading"></ui-component>
+                <ui-component component="listitem.text"></ui-component>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</span>

@@ -1,0 +1,112 @@
+{
+    "title": "mediaObject",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": [
+                "mediaObject"
+            ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "identifier": {
+            "type": "string"
+        },
+        "layout": {
+            "type": "string",
+            "default": "horizontal",
+            "enum": [
+                "horizontal",
+                "vertical"
+            ]
+        },
+        "shown": {
+            "type": "string",
+            "default": "show",
+            "enum": [
+                "show",
+                "hide",
+                "hideCSS"
+            ]
+        },
+        "contents": {
+            "type": "object",
+            "oneOf": [{
+                "title": "images",
+                "properties": {
+                    "mediaObjType": {
+                        "type": "string",
+                        "enum": [
+                            "images"
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "contentsArray": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "title": "image",
+                            "type": "object",
+                            "properties": {
+                                "image": {
+                                    "$ref": "../shared/components/imageAtom/imageAtom.schema.json"
+                                },
+                                "heading": {
+                                    "$ref": "../shared/components/heading/heading.schema.json"
+                                },
+                                "text": {
+                                    "oneOf": [{
+                                        "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                                    }, {
+                                        "$ref": "../shared/components/inline/inline.schema.json"
+                                    }]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }, {
+                "title": "orderedList",
+                "properties": {
+                    "mediaObjType": {
+                        "type": "string",
+                        "enum": [
+                            "orderedList"
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "contentsArray": {
+                        "type": "array",
+                        "minItems": 2,
+                        "items": {
+                            "type": "object",
+                            "title": "list item",
+                            "properties": {
+                                "heading": {
+                                    "$ref": "../shared/components/heading/heading.schema.json"
+                                },
+                                "text": {
+                                    "oneOf": [{
+                                        "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                                    }, {
+                                        "$ref": "../shared/components/inline/inline.schema.json"
+                                    }]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }]
+        }
+    }
+}

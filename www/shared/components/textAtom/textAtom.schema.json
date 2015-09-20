@@ -1,0 +1,65 @@
+{
+	"title": "text",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["textAtom"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"style": {
+			"type": "string",
+			"enum": ["default", "bold", "italics", "underline", "strikethrough", "small", "custom class"],
+			"default": "default",
+			"propertyOrder": 2
+		},
+		"class": {
+			"type": "string",
+			"description": "This value applies only if 'custom class' is selected for style",
+			"propertyOrder": 3
+		},
+		"textType": {
+			"type": "string",
+			"enum": ["text", "link", "html"],
+			"propertyOrder": 4
+		},
+		"clickAction": {
+			"type": "string",
+			"enum": ["anchor", "route", "custom"],
+			"description": "This value applies only if 'link' is selected for textType",
+			"propertyOrder": 5
+		},
+		"href": {
+			"type": "string",
+			"description": "This value applies only if 'link' is selected for textType AND 'anchor' or 'route' are selected for clickAction",
+			"propertyOrder": 6
+		},
+		"validateForm": {
+			"type": "boolean",
+			"description": "This value applies only if 'link' is selected for textType AND 'route' are selected for clickAction",
+			"propertyOrder": 7
+		},
+		"compile": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder": 8
+		},
+		"content": {
+			"type": "string",
+			"propertyOrder": 9
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 10
+		}
+	},
+	"additionalProperties": false
+}

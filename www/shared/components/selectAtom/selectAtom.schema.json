@@ -1,0 +1,108 @@
+{
+	"title": "select",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"selectAtom"
+			],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"id": {
+			"type": "string",
+			"propertyOrder": 2
+		},
+		"model": {
+			"type": "string",
+			"default": "selectAtomModel",
+			"propertyOrder": 3
+		},
+		"name": {
+			"type": "string",
+			"propertyOrder": 4
+		},
+		"readonly": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder": 5
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder": 6
+		},
+		"sizing": {
+			"type": "string",
+			"enum": ["small", "medium", "large"],
+			"default": "medium",
+			"propertyOrder": 8
+		},
+		"default": {
+			"type": "object",
+			"properties": {
+				"label": {
+					"type": "string",
+					"default": "A default select option"
+				}
+			},
+			"propertyOrder": 9
+		},
+		"questions": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"properties": {
+					"label": {
+						"type": "string",
+						"default": "A select option"
+					},
+					"value": {
+						"type": "string",
+						"default": "selectValue"
+					}
+				},
+				"additionalProperties": false
+			},
+			"propertyOrder": 10
+		},
+		"validators": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string",
+						"enum": [
+							"required",
+							"pattern",
+							"minlength",
+							"maxlength",
+							"custom"
+						]
+					},
+					"parameter": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			},
+			"propertyOrder": 11
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 12
+		}
+	},
+	"additionalProperties": false
+}

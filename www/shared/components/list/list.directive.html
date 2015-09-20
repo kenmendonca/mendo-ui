@@ -1,0 +1,20 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-switch="component.listType">
+	<ul ng-switch-when="unordered" ng-class="{'list-unstyled' : !component.hasListStyle}">
+		<li ng-repeat="listItem in component.listItems" class="ui-list__list-item">
+			<ui-component component="listItem.contents"></ui-component>
+			<span ng-if="listItem.subList.hasSubList">
+				<ui-component component="listItem.subList.list"></ui-component>
+			</span>
+		</li>
+	</ul>
+	<ol ng-switch-when="ordered" ng-class="{'list-unstyled' : !component.hasListStyle}">
+		<li ng-repeat="listItem in component.listItems" class="ui-list__list-item">
+			<ui-component component="listItem.contents"></ui-component>
+			<span ng-if="listItem.subList.hasSubList">
+				<ui-component component="listItem.subList.list"></ui-component>
+			</span>
+		</li>
+	</ol>
+</span>
+</span>

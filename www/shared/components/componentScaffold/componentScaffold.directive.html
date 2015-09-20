@@ -1,0 +1,12 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+	<div class="row" ng-repeat="row in component.row">
+		<div ng-repeat="col in row" ng-class="'col-md-'+col.width">
+			<ui-component ng-repeat="component in col.scaffoldComponents" component="component"></ui-component>
+			<span ng-if="col.subComponentScaffold.hasSubComponentScaffold">
+				<ui-component component="col.subComponentScaffold.componentScaffold"></ui-component>
+			</span>
+		</div>
+	</div>
+</span>
+</span>

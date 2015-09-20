@@ -1,0 +1,68 @@
+{
+    "title": "accordion",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": [
+                "accordion"
+            ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "identifier": {
+            "type": "string",
+            "propertyOrder": 1
+        },
+        "panels": {
+            "type": "array",
+            "items": {
+                "title": "panel",
+                "type": "object",
+                "properties": {
+                    "class": {
+                        "type": "string",
+                        "enum": [
+                            "default",
+                            "primary",
+                            "success",
+                            "info",
+                            "danger"
+                        ]
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "heading": {
+                        "type": "object",
+                        "properties": {
+                            "contents": {
+                                "$ref": "../shared/components/inline/inline.schema.json"
+                            }
+                        }
+                    },
+                    "body": {
+                        "type": "object",
+                        "properties": {
+                            "contents": {
+                                "$ref": "../shared/components/componentScaffold/componentScaffold.schema.json"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "shown": {
+            "type": "string",
+            "enum": [
+                "show",
+                "hide",
+                "hideCSS"
+            ],
+            "default": "show",
+            "propertyOrder": 4
+        }
+    },
+    "additionalProperties": false
+}

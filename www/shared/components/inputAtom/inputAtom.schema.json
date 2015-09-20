@@ -1,0 +1,151 @@
+{
+	"title": "input",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"inputAtom"
+			],
+			"options" : {"hidden" : true}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder" : 1
+		},
+		"id": {
+			"type": "string",
+			"propertyOrder" : 2
+		},
+		"model": {
+			"type": "string",
+			"default" : "inputAtomModel",
+			"propertyOrder" : 3
+		},
+		"name": {
+			"type": "string",
+			"propertyOrder" : 4
+		},
+		"inputType": {
+			"type": "string",
+			"enum": [
+				"text",
+				"password",
+				"email"
+			],
+			"propertyOrder" : 5
+		},
+		"readonly": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder" : 6
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder" : 7
+		},
+		"placeholder": {
+			"type": "string",
+			"propertyOrder" : 8
+		},
+		"sizing" : {
+			"type" : "string",
+			"enum" : ["small","medium","large"],
+			"default" : "medium",
+			"propertyOrder" : 9
+			},
+		"hasMask": {
+			"type": "object",
+			"oneOf": [{
+				"title": "false",
+				"properties": {
+					"hasMask": {
+						"type": "boolean",
+						"enum": [
+							false
+						],"options" : {"hidden" : true}
+					}
+				},
+				"additionalProperties": false
+			}, {
+				"title": "true",
+				"properties": {
+					"hasMask": {
+						"type": "boolean",
+						"enum": [
+							true
+						],"options" : {"hidden" : true}
+					},
+					"mask": {
+						"type": "string"
+					},
+					"maskPlaceholder": {
+						"type": "string"
+					},
+					"maskModel": {
+						"type": "boolean",
+						"default": false
+					}
+				},
+				"additionalProperties": false
+			}],
+			"propertyOrder" : 10},
+		"validators": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string",
+						"enum": [
+							"required",
+							"pattern",
+							"minlength",
+							"maxlength",
+							"custom"
+						]
+					},
+					"parameter": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+			,
+			"propertyOrder" : 11
+		},
+		"utilities": {
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "object",
+				"properties": {
+					"utility": {
+						"type": "string",
+						"enum": [
+							"numbersOnly",
+							"lettersOnly",
+							"alphanumericOnly",
+							"regExpOnly",
+							"commas",
+							"maxlength"
+						]
+					},
+					"parameters": {
+						"type": "string"
+					}
+				}
+			},
+			"propertyOrder" : 12
+		},
+		"shown" : {
+			"type" : "string",
+			"enum" : ["show","hide","hideCSS"],
+			"default" : "show",
+			"propertyOrder" : 13
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,5 @@
+<span>
+<p ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-class="'text-'+component.alignment" class="{{component.class}} {{component.parentClass}}">
+	<ui-component ng-repeat="subcomponent in component.contents" component="subcomponent"></ui-component>
+</p>
+</span>

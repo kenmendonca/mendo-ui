@@ -1,0 +1,14 @@
+<span>
+<div class="drop{{component.direction}}" ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+  <button class="btn btn-{{component.class}} btn-{{component.sizing}} dropdown-toggle ui-dropdown-atom__button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="component.disabled">
+    {{component.title}}
+    <span class="caret" ng-if="component.caret"></span>
+  </button>
+  <ul class="dropdown-menu ui-dropdown-atom__menu">
+    <li ng-repeat="menuItem in component.dropdownMenu track by $index" ng-class="{'divider' : menuItem.menuItemType == 'seperator' , 'dropdown-header' : menuItem.menuItemType == 'header' , 'active' : menuItem.state == 'active' , 'disabled' : 'menuItem.state' == 'disabled'}">
+      <a ng-if="menuItem.menuItemType == 'link'" href="{{menuItem.href}}" ng-disabled="menuItem.state == 'disabled'" ng-click="clickFns[menuItem.clickFnName]($event)">{{menuItem.content}}</a>
+      <span ng-if="menuItem.menuItemType == 'header'">{{menuItem.content}}</span>
+    </li>
+  </ul>
+</div>
+</span>

@@ -1,0 +1,13 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'">
+	<div ng-class="{'form-group':component.hasLabel.hasLabel || component.hasHelpText.hasHelpText,'has-error' : form.showErrors[pageTitle + 'Form'] && !form[pageTitle + 'Form'][component.formComponent.formComponent.name].$valid}">
+		<label for="{{component.hasLabel.formComponentId}}" ng-if="component.hasLabel.hasLabel" class="control-label">
+			<ui-component component="component.hasLabel.label"></ui-component>
+		</label>
+			<ui-component component="component.formComponent.formComponent"></ui-component>
+			<span ng-if="component.hasHelpText.hasHelpText">
+			<ui-component component="component.hasHelpText.helpText" ovr-str-parent-class="help-block"></ui-component>
+			</span>
+	</div>
+</span>
+</span>

@@ -1,0 +1,91 @@
+{
+    "title": "sortTable",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": [
+                "sortTable"
+            ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "model": {
+            "type": "string"
+        },
+        "searchModel" : {
+            "type" : "string",
+            "description" : "This refers to the model that should be used for the search input, which must be constructed independently of the sort table"
+            },
+        "perPageModel" : {
+            "type" : "string"
+            },
+        "paginationModel" : {
+            "type" : "string"
+        },
+        "identifier": {
+            "type": "string"
+        },
+        "class": {
+            "type": "string"
+        },
+        "columns": {
+            "type": "array",
+            "items": {
+                "title": "column",
+                "type": "object",
+                "properties": {
+                    "key": {
+                                "type": "string"
+                            },
+                    "tableHeader": {
+                        "type": "object",
+                        "properties": {
+                            "contents": {
+                                "oneOf": [{
+                                    "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                                }, {
+                                    "$ref": "../shared/components/inline/inline.schema.json"
+                                }]
+                            },
+                            "sortable": {
+                                "type": "boolean",
+                                "default": true
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "tableData": {
+                        "type": "object",
+                        "properties": {
+                            "contents": {
+                                "oneOf": [{
+                                    "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                                }, {
+                                    "$ref": "../shared/components/inline/inline.schema.json"
+                                }, {
+                                    "$ref": "../shared/components/buttonAtom/buttonAtom.schema.json"
+                                }, {
+                                    "$ref": "../shared/components/dropdownAtom/dropdownAtom.schema.json"
+                                }]
+                            }
+                        }
+
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "shown": {
+            "type": "string",
+            "enum": [
+                "show",
+                "hide",
+                "hideCSS"
+            ],
+            "default": "show"
+        }
+    },
+    "additionalProperties": false
+}

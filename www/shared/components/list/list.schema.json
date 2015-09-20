@@ -1,0 +1,93 @@
+{
+	"title": "list",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"list"
+			],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder": 1
+		},
+		"listType": {
+			"type": "string",
+			"enum": [
+				"ordered",
+				"unordered"
+			],
+			"propertyOrder": 2
+		},
+		"hasListStyle": {
+			"type": "boolean",
+			"default": true,
+			"propertyOrder": 3
+		},
+		"listItems": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"contents": {
+						"oneOf": [{
+                            "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                        }, {
+                            "$ref": "../shared/components/inline/inline.schema.json"
+                        }]
+					},
+					"subList": {
+						"oneOf": [{
+							"type": "object",
+							"title": "false",
+							"properties": {
+								"hasSubList": {
+									"type": "boolean",
+									"enum": [
+										false
+									],
+									"options": {
+										"hidden": true
+									}
+								}
+							}
+						}, {
+							"type": "object",
+							"title": "true",
+							"properties": {
+								"hasSubList": {
+									"type": "boolean",
+									"enum": [
+										true
+									],
+									"options": {
+										"hidden": true
+									}
+								},
+								"list": {
+									"$ref": "../shared/components/list/list.schema.json"
+								}
+							}
+						}]
+					}
+				}
+			},
+			"propertyOrder": 4
+		},
+		"shown": {
+			"type": "string",
+			"enum": [
+				"show",
+				"hide",
+				"hideCSS"
+			],
+			"default": "show",
+			"propertyOrder": 5
+		}
+	},
+	"additionalProperties": false
+}

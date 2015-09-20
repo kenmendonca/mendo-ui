@@ -1,0 +1,180 @@
+{
+    "title": "formGroup",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": [
+                "formGroup"
+            ],
+            "options": {
+                "hidden": true
+            }
+        },
+        "identifier": {
+            "type": "string",
+            "propertyOrder": 1
+        },
+        "hasLabel": {
+            "type": "object",
+            "oneOf": [{
+                "title": "false",
+                "properties": {
+                    "hasLabel": {
+                        "type": "boolean",
+                        "enum": [
+                            false
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }, {
+                "title": "true",
+                "properties": {
+                    "hasLabel": {
+                        "type": "boolean",
+                        "enum": [
+                            true
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "formComponentId": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "oneOf": [{
+                            "$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+                        }, {
+                            "$ref": "../shared/components/inline/inline.schema.json"
+                        }]
+                    }
+                },
+                "additionalProperties": false
+            }],
+            "propertyOrder": 2
+        },
+        "formComponent": {
+            "oneOf": [{
+                "type": "object",
+                "title": "input",
+                "properties": {
+                    "primitive": {
+                        "type": "string",
+                        "enum": [
+                            "inputAtom"
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "formComponent": {
+                        "$ref": "../shared/components/inputAtom/inputAtom.schema.json"
+                    }
+                }
+            }, {
+                "type": "object",
+                "title": "date",
+                "properties": {
+                    "primitive": {
+                        "type": "string",
+                        "enum": [
+                            "date"
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "formComponent": {
+                        "$ref": "../shared/components/date/date.schema.json"
+                    }
+                }
+            }, {
+                "type": "object",
+                "title": "select",
+                "properties": {
+                    "primitive": {
+                        "type": "string",
+                        "enum": [
+                            "selectAtom"
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "formComponent": {
+                        "$ref": "../shared/components/selectAtom/selectAtom.schema.json"
+                    }
+                }
+            }, {
+                "type": "object",
+                "title": "textarea",
+                "properties": {
+                    "primitive": {
+                        "type": "string",
+                        "enum": [
+                            "textAreaAtom"
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "formComponent": {
+                        "$ref": "../shared/components/textAreaAtom/textAreaAtom.schema.json"
+                    }
+                }
+            }]
+        },
+        "hasHelpText": {
+            "type": "object",
+            "oneOf": [{
+                "title": "false",
+                "properties": {
+                    "hasHelpText": {
+                        "type": "boolean",
+                        "enum": [
+                            false
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    }
+                },
+                "additionalProperties": false
+            }, {
+                "title": "true",
+                "properties": {
+                    "hasHelpText": {
+                        "type": "boolean",
+                        "enum": [
+                            true
+                        ],
+                        "options": {
+                            "hidden": true
+                        }
+                    },
+                    "helpText": {
+                        "$ref": "../shared/components/paragraph/paragraph.schema.json"
+                    }
+                },
+                "additionalProperties": false
+            }],
+            "propertyOrder": 4
+        },
+        "shown": {
+            "type": "string",
+            "enum": [
+                "show",
+                "hide",
+                "hideCSS"
+            ],
+            "default": "show",
+            "propertyOrder": 5
+        }
+    },
+    "additionalProperties": false
+}

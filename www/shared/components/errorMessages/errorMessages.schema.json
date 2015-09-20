@@ -1,0 +1,57 @@
+{
+	"title": "errorMessages",
+	"type": "object",
+	"description": "No preview available for error messages",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": ["errorMessages"],
+			"options": {
+				"hidden": true
+			}
+		},
+		"identifier": {
+			"type": "string"
+		},
+		"name": {
+			"type": "string"
+		},
+		"multiple": {
+			"type": "boolean",
+			"default": false
+		},
+		"style": {
+			"type": "string",
+			"enum": ["box", "text"],
+			"default": "box"
+		},
+		"validators": {
+			"type": "array",
+			"minItems": 1,
+			"items": {
+				"type": "object",
+				"properties": {
+					"condition": {
+						"type": "string"
+					},
+					"contents": {
+						"oneOf": [{
+							"$ref": "../shared/components/plaintextAtom/plaintextAtom.schema.json"
+						}, {
+							"$ref": "../shared/components/inline/inline.schema.json"
+						}]
+					}
+				},
+				"additionalProperties": false
+			}
+
+		},
+		"shown": {
+			"type": "string",
+			"enum": ["show", "hide", "hideCSS"],
+			"default": "show",
+			"propertyOrder": 4
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,150 @@
+{
+	"title": "dropdown",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string",
+			"enum": [
+				"dropdownAtom"
+			],
+			"options" : {"hidden" : true}
+		},
+		"identifier": {
+			"type": "string",
+			"propertyOrder" : 1
+		},
+		"title": {
+			"type": "string",
+			"propertyOrder" : 2
+		},
+		"caret": {
+			"type": "boolean",
+			"propertyOrder" : 3
+		},
+		"class": {
+			"type": "string",
+			"enum": [
+				"default",
+				"primary",
+				"success",
+				"info",
+				"danger"
+			],
+			"propertyOrder" : 4
+		},
+		"sizing": {
+			"type": "string",
+			"enum": [
+				"xs",
+				"sm",
+				"md",
+				"lg"
+			],
+			"default": "md",
+			"propertyOrder" : 5
+		},
+		"direction": {
+			"type": "string",
+			"enum": ["up", "down"],
+			"propertyOrder" : 6
+		},
+		"disabled": {
+			"type": "boolean",
+			"default": false,
+			"propertyOrder" : 7
+		},
+		"dropdownMenu": {
+			"type": "array",
+			"items": {
+				"oneOf": [{
+					"title": "link",
+					"type": "object",
+					"properties": {
+						"menuItemType": {
+							"type": "string",
+							"enum": [
+								"link"
+							],
+							"options" : {"hidden" : true}
+						},
+						"content" : {
+							"type" : "string",
+			"propertyOrder" : 1
+							},
+						"state" :{
+							"type" : "string",
+							"enum" : ["default","active","disabled"],
+			"propertyOrder" : 2
+							},
+						"clickAction": {
+							"type": "string",
+							"enum": [
+								"anchor",
+								"route",
+								"custom"
+							],
+			"propertyOrder" : 3
+						},
+						"href": {
+							"type": "string",
+							"description": "This value applies only if 'anchor' or 'route' are selected for clickAction",
+			"propertyOrder" : 4
+						},
+						"validateForm": {
+							"type": "boolean",
+							"description": "This value applies only if 'route' is selected for clickAction",
+			"propertyOrder" : 5
+						},
+						"clickFnName" : {
+							"type" : "string",
+							"description" : "This value applies only if 'custom' is selected for clickAction",
+			"propertyOrder" : 6
+						}
+					},
+					"additionalProperties": false
+				}, {
+					"title": "header",
+					"type": "object",
+					"properties": {
+						"menuItemType": {
+							"type": "string",
+							"enum": [
+								"header"
+							],
+							"options" : {"hidden" : true}
+						},
+						"content": {
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
+				}, {
+					"title": "seperator",
+					"type": "object",
+					"properties": {
+						"menuItemType": {
+							"type": "string",
+							"enum": [
+								"seperator"
+							],
+							"options" : {"hidden" : true}
+						}
+					},
+					"additionalProperties": false
+				}]
+			},
+			"propertyOrder" : 8
+		},
+		"shown": {
+			"type": "string",
+			"enum": [
+				"show",
+				"hide",
+				"hideCSS"
+			],
+			"default": "show",
+			"propertyOrder" : 9
+		}
+	},
+	"additionalProperties": false
+}

@@ -1,0 +1,16 @@
+<span>
+	<table ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" class="table ui-table {{component.class}}">
+		 <thead>
+                <th ng-repeat="tableHeaderComponent in component.tableHeaders">
+                	<ui-component component="tableHeaderComponent.contents"></ui-component>
+                </th>
+            </thead>
+            <tbody>
+            	<tr ng-repeat="tableRow in component.tableRows">
+                <td ng-repeat="tableColumn in tableRow">
+                	<ui-component component="tableColumn.contents"></ui-component>
+                </td>
+            	</tr>
+            </tbody>
+	</table>
+</span>

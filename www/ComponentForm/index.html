@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>homepage</title>
+   <link rel="stylesheet" href="../shared/styles/bootstrap.css">
+    <link rel="stylesheet" href="../shared/styles/font-awesome-4.4.0/css/font-awesome.css">
+    <link rel="stylesheet" href="<%=buildCssPath%>">
+
+</head>
+
+<body>
+<div id="mendoApp">
+    <div class="global-styles" ui-view>
+    </div>
+</div>
+
+    <script type="text/javascript" src="../shared/scripts/jquery.js"></script>
+    
+    <script type="text/javascript" src="../shared/scripts/angular.min.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular.ui-router.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular.ui-utils.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular-messages.js"></script>
+    <script type="text/javascript" src="../shared/scripts/angular-sanitize.js"></script>
+    
+    <script type="text/javascript" src="../shared/scripts/bootstrap.js"></script>
+    
+    <script type="text/javascript" src="../shared/scripts/moment.js"></script>
+    
+    <script mendo-ui type="text/javascript" src="<%=buildJsPath%>" directory="<%=directory%>"></script>
+    <%=controllers%>
+
+
+</body>
+
+</html>

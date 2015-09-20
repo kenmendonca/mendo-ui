@@ -1,0 +1,26 @@
+<span>
+<span ng-if="component.shown != 'hide'" ng-hide="component.shown == 'hideCSS'" ng-switch="component.layout">
+	<span ng-switch-when="block">
+		<span ng-repeat="radioComponent in component.radioComponents" ng-class="{'has-error' : form.showErrors[pageTitle + 'Form'] && !form[pageTitle + 'Form'][radioComponent.radioComponent.name].$valid}">
+			<div class="radio">
+				<label>
+					<ui-component component="radioComponent.radioComponent"></ui-component>
+					<span ng-if="radioComponent.hasLabel.hasLabel">
+					<ui-component component="radioComponent.hasLabel.label"></ui-component>
+					</span>
+				</label>
+			</div>
+		</span>
+	</span>
+	<span ng-switch-when="inline">
+		<span ng-repeat="radioComponent in component.radioComponents" ng-class="{'has-error' : form.showErrors[pageTitle + 'Form'] && !form[pageTitle + 'Form'][radioComponent.radioComponent.name].$valid}">
+			<label class="radio-inline">
+				<ui-component component="radioComponent.radioComponent"></ui-component>
+				<span ng-if="radioComponent.hasLabel.hasLabel">
+				<ui-component component="radioComponent.hasLabel.label"></ui-component>
+				</span>
+			</label>
+		</span>
+	</span>
+</span>
+</span>
